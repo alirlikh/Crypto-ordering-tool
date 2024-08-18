@@ -69,4 +69,8 @@
   --guide-chip-bg: #222;
 }
 
+body {
+  @apply font-body;
+}
+
 @import "./fonts/font.css";
