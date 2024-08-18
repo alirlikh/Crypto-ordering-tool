@@ -1,5 +1,5 @@
-import React, { Suspense } from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import React, { lazy, Suspense } from "react"
+import { Routes, Route } from "react-router-dom"
 
 export const renderRoutes = (routes) => {
   return (
@@ -13,9 +13,12 @@ export const renderRoutes = (routes) => {
   )
 }
 
+const Markets = React.lazy(() => import("./pages/markets/Markets"))
+const Orders = React.lazy(() => import("./pages/orders/Orders"))
+
 const routes = [
-  { path: "/", element: <div>markets</div> },
-  { path: "/order", element: <div>order</div> }
+  { path: "/", element: <Markets /> },
+  { path: "/orders", element: <Orders /> }
 ]
 
 export default routes
