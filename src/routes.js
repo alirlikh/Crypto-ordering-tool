@@ -18,7 +18,7 @@ const Orders = React.lazy(() => import("./pages/orders/Orders"))
 
 const routes = [
   { path: "/", element: <Markets /> },
-  { path: "/orders/:currency", element: <Orders /> }
+  { path: "/orders/:currencyId", element: <Orders /> }
 ]
 
 export default routes
