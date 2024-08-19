@@ -5,8 +5,8 @@ const LinkButton = ({ name, href, data }) => {
   return (
     <Link
       to={{
-        pathname: href,
-        state: data
+        pathname: href
+        // state: data
       }}
     >
       <button className="bg-btn-green transition-all duration-150 hover:brightness-[0.8] text-black font-medium py-3 px-6 rounded">
