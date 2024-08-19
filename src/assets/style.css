@@ -27,6 +27,7 @@
   --price-clock: #222222;
   --btn-selected: #cafae1;
   --hover-col: 78, 240, 157;
+  --btn-green: #4ef09d;
 }
 
 [data-theme="dark"] {
@@ -54,6 +55,7 @@
   --price-clock: #222222;
   --hover-col: 78, 240, 157;
   --btn-selected: #294134;
+  --btn-green: #4ef09d;
 }
 
 body {
