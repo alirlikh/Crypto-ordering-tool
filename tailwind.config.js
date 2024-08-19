@@ -26,7 +26,8 @@ module.exports = {
         text: `var(--text)`,
         "hover-col": `rgba(var(--hover-col),0.102)`,
         "btn-selected": `var(--btn-selected)`,
-        bold_text: `var(--bold_text)`
+        bold_text: `var(--bold_text)`,
+        "btn-green": `var(--btn-green)`
       }
     }
   },
