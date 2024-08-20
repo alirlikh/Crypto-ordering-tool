@@ -14,7 +14,7 @@ module.exports = {
         lg: "976px"
       },
       fontFamily: {
-        body: ["BYekan"]
+        body: ["IRANSans"]
       },
       colors: {
         background_color: `var(--background_color)`,
@@ -27,6 +27,11 @@ module.exports = {
         "hover-col": `rgba(var(--hover-col),0.102)`,
         "btn-selected": `var(--btn-selected)`,
         bold_text: `var(--bold_text)`,
+        "tab-border": `var(--tab-border)`,
+        "tab-text": `var(--tab-border)`,
+        "tab-selection": `rgb(var(--tab-selection))`,
+        "tab-red": `var(--tab-red)`,
+        "tab-green": `var(--tab-green)`,
         "btn-green": `var(--btn-green)`
       }
     }

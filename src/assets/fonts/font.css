@@ -3,3 +3,9 @@
   src: url("BYekan.eot") format("eot"), url("BYekan.woff") format("woff"),
     url("BYekan.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "IRANSans";
+  src: url("IRANSansWeb_Light.eot?#") format("eot"), url("IRANSansWeb_Light.woff") format("woff"),
+    url("IRANSansWeb_Light.woff2") format("woff2"), url("IRANSansWeb_Light.ttf") format("truetype");
+}
