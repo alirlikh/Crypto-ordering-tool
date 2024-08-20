@@ -16,8 +16,10 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 0 5px;
   padding: 8px 16px;
   border: 1px solid #ddd;
-  background-color: #f9f9f9;
+  background-color: var(--probe_chart_card);
   cursor: pointer;
+  color: var(--regular_text);
+  border-radius: 0.25rem;
 }
 
 .pagination-button.active {
