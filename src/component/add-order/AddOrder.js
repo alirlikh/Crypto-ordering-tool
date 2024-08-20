@@ -1,7 +1,13 @@
 import React, { useState } from "react"
 import Button from "../button/Button"
 
-const AddOrder = ({ setUserInputValue, userInputValue, setPayment, oredersLength }) => {
+const AddOrder = ({
+  setUserInputValue,
+  userInputValue,
+  setPayment,
+  oredersLength,
+  activeTabObject
+}) => {
   const [percentageAmount, setPercentageAmount] = useState()
   const [error, setError] = useState()
 
@@ -49,8 +55,14 @@ const AddOrder = ({ setUserInputValue, userInputValue, setPayment, oredersLength
             onChange={checkInput}
           />
         </div>
-        <Button disabled={!percentageAmount} onClick={handleSubmit}>
-          ثبت
+        <Button
+          disabled={!percentageAmount}
+          onClick={handleSubmit}
+          className={`${activeTabObject.code === "sell" ? "bg-tab-red" : ""} ${
+            percentageAmount ? "" : "opacity-45"
+          }`}
+        >
+          {activeTabObject.name}
         </Button>
       </div>
 

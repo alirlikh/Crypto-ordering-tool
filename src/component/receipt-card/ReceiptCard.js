@@ -2,7 +2,7 @@ import Decimal from "decimal.js"
 import React, { useEffect, useState } from "react"
 import Button from "../button/Button"
 
-export const ReceiptCard = ({ percentageValue, orderResult, setPayment }) => {
+export const ReceiptCard = ({ percentageValue, orderResult, setPayment, activeTabObject }) => {
   const [average, setAverage] = useState(0)
   const [volume, setVolume] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0)
@@ -20,7 +20,7 @@ export const ReceiptCard = ({ percentageValue, orderResult, setPayment }) => {
   return (
     <div className="bg-background_color rounded-2xl w-full min-w-64 px-4 py-8 m-3 mx-auto text-regular_text">
       <div className="flex flex-col">
-        <h3 className="text-base font-bold text-center">سفارش</h3>
+        <h3 className="text-base font-bold text-center">سفارش {activeTabObject.name}</h3>
         <div className="flex flex-row justify-between items-center">
           <span className="m-2">درصد خواسته:</span>
           <div className="flex-1 border-b border-dashed border-gray-300 h-[1px]"></div>

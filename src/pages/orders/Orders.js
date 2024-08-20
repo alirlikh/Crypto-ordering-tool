@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import OrderList from "../../component/order-list/OrderList"
 import { fetchOrder, fetchMatches } from "../../services/orders/orders.api"
 import { Link, NavLink, useParams } from "react-router-dom"
@@ -25,6 +25,10 @@ function Orders() {
     { id: 2, name: "فروش", code: "sell" },
     { id: 3, name: "معاملات", code: "matches" }
   ]
+
+  const activeTabObject = useMemo(() => {
+    return tabs.find((tab) => tab.code === activeTab)
+  }, [activeTab])
 
   const handleTabClick = (e) => {
     setActiveTab(e.target.id)
@@ -144,6 +148,7 @@ function Orders() {
                   setUserInputValue={setUserInputValue}
                   setPayment={setPayment}
                   oredersLength={orders.length}
+                  activeTabObject={activeTabObject}
                 />
               )}
               {payment && (
@@ -151,7 +156,7 @@ function Orders() {
                   percentageValue={userInputValue}
                   orderResult={orderResult}
                   setPayment={setPayment}
-                  // getOrders={getOrders}
+                  activeTabObject={activeTabObject}
                 />
               )}
             </>
