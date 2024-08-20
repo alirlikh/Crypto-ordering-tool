@@ -1,10 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react"
 import { fetchMarkets } from "../../services/markets/markets.api"
-import axios from "axios"
-import Table from "../../component/table/Table"
 import Pagination from "../../component/pagination/Pagination"
 import usePagination from "../../hook/UsePagination"
 import Card from "../../component/card/Card"
+import Loader from "../../component/loader/Loader"
 
 function Markets() {
   const [marketData, setMarketData] = useState(null)
@@ -35,7 +34,7 @@ function Markets() {
   const { currentData, currentPage, totalPages, goToNextPage, goToPreviousPage, setPage } =
     usePagination(filteredData, itemsPerPage)
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <Loader />
   return (
     <div className="relative overflow-x-auto w-full md:w-3/4  text-center mx-auto rounded-lg pb-10">
       <div className=" bg-probe_chart_card  text-bold_text flex justify-start  *:py-3 *:px-6  rounded-md py-2 px-2 md:w-52 w-full ">
