@@ -54,16 +54,16 @@ const Card = ({ tableData }) => {
                 </div>
               </div>
               <div className="tab2  ltr-grid md:w-1/5  w-1/3">
-                <span>{item.price ? new Decimal(item.price).toString() : "-"}</span>
+                <span>{item.price ? new Decimal(item.price).toFixed().toString() : "-"}</span>
               </div>
-              <div className="tab3 md:w-1/6 w-1/4">
+              <div className="tab3 md:w-1/6 w-1/4 ltr-grid">
                 <span
                   className={` px-6 py-4 text-bold_text my-2 ltr-grid ${
                     item.price_info.change > 0 ? "text-green_text" : "text-red_text"
                   }`}
                 >
                   {item.price_info.change
-                    ? `%${new Decimal(item.price_info.change).toString()}`
+                    ? `%${new Decimal(item.price_info.change).toFixed(2).toString()}`
                     : "-"}
                 </span>
               </div>
