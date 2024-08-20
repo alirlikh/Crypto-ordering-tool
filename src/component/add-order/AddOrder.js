@@ -33,11 +33,12 @@ const AddOrder = ({ setUserInputValue, userInputValue, setPayment, oredersLength
 
   return (
     <div className="bg-background_color rounded-2xl w-full px-4 py-4 m-4 mx-auto ">
-      <div className="flex flex-row justify-around">
+      <div className="flex flex-col justify-around md:flex-row items-center *:my-2">
         <div>
           <label htmlFor="userData" className=""></label>
           <input
-            className="md:w-72 h-14 w-32 rounded focus:outline-0 active:outline-0 outline-0 p-2 text-center ltr-grid bg-input-color text-bold_text"
+            // w-32 md:w-72
+            className=" h-14 sm:w-64 w-52 md:w-48 lg:w-72 rounded focus:outline-0 active:outline-0 outline-0 p-2 text-center ltr-grid bg-input-color text-bold_text"
             name="userData"
             placeholder="مقدار درصدی مورد نظر را وارد کنید"
             type="number"
