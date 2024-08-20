@@ -8,20 +8,28 @@ const MatchList = ({ data }) => {
         <span>مقدار</span>
         <span>زمان</span>
       </div>
-      {data.map((orders, index) => (
-        <div
-          key={index}
-          className="flex flex-row *:px-4 *:py-2 *:text-center justify-between *:text-xs "
-        >
-          <span>{orders.price}</span>
-          <span>{orders.match_amount}</span>
-          <span>
-            {new Date(orders.time * 1000).toLocaleString("fa", {
-              timeStyle: "short"
-            })}
+      {data && data.lenght > 0 ? (
+        data.map((orders, index) => (
+          <div
+            key={index}
+            className="flex flex-row *:px-4 *:py-2 *:text-center justify-between *:text-xs "
+          >
+            <span>{orders.price}</span>
+            <span>{orders.match_amount}</span>
+            <span>
+              {new Date(orders.time * 1000).toLocaleString("fa", {
+                timeStyle: "short"
+              })}
+            </span>
+          </div>
+        ))
+      ) : (
+        <div>
+          <span className="text-center h-16 mt-4">
+            <p className="text-red_text text-base">داده ای برای نمایش وجود ندارد</p>
           </span>
         </div>
-      ))}
+      )}
     </div>
   )
 }

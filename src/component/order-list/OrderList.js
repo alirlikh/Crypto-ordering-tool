@@ -8,16 +8,24 @@ const OrderList = ({ data }) => {
         <span>مقدار</span>
         <span>باقی</span>
       </div>
-      {data.map((orders, index) => (
-        <div
-          key={index}
-          className="flex flex-row *:px-4 *:py-2 *:text-center justify-between *:text-xs "
-        >
-          <span>{orders.price}</span>
-          <span>{orders.amount}</span>
-          <span>{orders.remain}</span>
+      {data && data.lenght > 0 ? (
+        data.map((orders, index) => (
+          <div
+            key={index}
+            className="flex flex-row *:px-4 *:py-2 *:text-center justify-between *:text-xs "
+          >
+            <span>{orders.price}</span>
+            <span>{orders.amount}</span>
+            <span>{orders.remain}</span>
+          </div>
+        ))
+      ) : (
+        <div>
+          <span className="text-center h-16 mt-4">
+            <p className="text-red_text text-base">داده ای برای نمایش وجود ندارد</p>
+          </span>
         </div>
-      ))}
+      )}
     </div>
   )
 }
