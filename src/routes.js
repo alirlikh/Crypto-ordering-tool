@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react"
 import { Routes, Route } from "react-router-dom"
+import NotFound from "./component/not-found/NotFound"
 
 export const renderRoutes = (routes) => {
   return (
@@ -18,7 +19,8 @@ const Orders = React.lazy(() => import("./pages/orders/Orders"))
 
 const routes = [
   { path: "/", element: <Markets /> },
-  { path: "/orders/:currencyId", element: <Orders /> }
+  { path: "/orders/:currencyId", element: <Orders /> },
+  { path: "*", element: <NotFound/> }
 ]
 
 export default routes
