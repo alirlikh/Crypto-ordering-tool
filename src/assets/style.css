@@ -22,6 +22,8 @@
   --tab-red: #ff5151cc;
   --tab-green: #74e291;
   --btn-paggenation: #007bff;
+
+  --input-color: #fff;
 }
 
 [data-theme="dark"] {
@@ -41,6 +43,7 @@
   --tab-text: #d8d8d8;
   --tab-selection: 57, 59, 62;
   --btn-paggenation: #007bff;
+  --input-color: #333333;
 }
 
 body {

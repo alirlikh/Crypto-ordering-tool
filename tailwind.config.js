@@ -33,6 +33,7 @@ module.exports = {
         "tab-red": `var(--tab-red)`,
         "tab-green": `var(--tab-green)`,
         "btn-paggenation": `var(--btn-paggenation)`,
+        "input-color": `var(--input-color)`,
         "btn-green": `var(--btn-green)`
       }
     }

@@ -37,7 +37,7 @@ const AddOrder = ({ setUserInputValue, userInputValue, setPayment, oredersLength
         <div>
           <label htmlFor="userData" className=""></label>
           <input
-            className="md:w-72 h-14 w-32 rounded focus:outline-0 active:outline-0 outline-0 p-2 text-center ltr-grid"
+            className="md:w-72 h-14 w-32 rounded focus:outline-0 active:outline-0 outline-0 p-2 text-center ltr-grid bg-input-color text-bold_text"
             name="userData"
             placeholder="مقدار درصدی مورد نظر را وارد کنید"
             type="number"
@@ -48,7 +48,9 @@ const AddOrder = ({ setUserInputValue, userInputValue, setPayment, oredersLength
             onChange={checkInput}
           />
         </div>
-        <Button onClick={handleSubmit}>ثبت</Button>
+        <Button disabled={!percentageAmount} onClick={handleSubmit}>
+          ثبت
+        </Button>
       </div>
 
       {error && <div className="text-red_text text-right p-2 m-1 relative -left-1/4">{error}</div>}
