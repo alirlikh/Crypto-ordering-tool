@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react"
 import OrderList from "../../component/order-list/OrderList"
 import { fetchOrder, fetchMatches } from "../../services/orders/orders.api"
-import { useParams } from "react-router-dom"
+import { Link, NavLink, useParams } from "react-router-dom"
 import AddOrder from "../../component/add-order/AddOrder"
 import MatchList from "../../component/match-list/MatchList"
 import CurrencyResult from "../../component/currency-result/CurrencyResult"
 import { ReceiptCard } from "../../component/receipt-card/ReceiptCard"
 import Decimal from "decimal.js"
 import Loader from "../../component/loader/Loader"
+import { Return } from "../../assets/icon/Retun"
 
 function Orders() {
   const [activeTab, setActiveTab] = useState("buy")
@@ -26,6 +27,10 @@ function Orders() {
   const getLocalData = () => {
     let ld = JSON.parse(localStorage.getItem("coin"))
     setLocalData(ld)
+  }
+
+  const removeLocalData = () => {
+    localStorage.removeItem("coin")
   }
 
   const getOrders = async (id, type) => {
@@ -51,27 +56,6 @@ function Orders() {
     }
   }
 
-  // useEffect(() => {
-  //   getLocalData()
-
-  //   // if (activeTab != "matches") {
-  //   //   getOrders(currencyId, activeTab)
-  //   //   console.log(orders, "log")
-  //   // } else if (activeTab === "matches") {
-  //   //   getMatches(currencyId)
-  //   // }
-
-  //   const intervalId = setInterval(() => {
-  //     // getOrders(currencyId, activeTab)
-  //     if (activeTab != "matches") {
-  //       getOrders(currencyId, activeTab)
-  //     } else if (activeTab === "matches") {
-  //       getMatches(currencyId)
-  //     }
-  //   }, 10000) // به‌روزرسانی هر 3 ثانیه یکبار
-  //   return () => clearInterval(intervalId) // پاکسازی interval هنگام unmount
-  // }, [activeTab])
-
   useEffect(() => {
     const fetchData = () => {
       if (activeTab === "matches") {
@@ -91,6 +75,11 @@ function Orders() {
   return (
     <div>
       <div className="bg-probe_chart_card flex flex-col justify-center items-center sm:w-full   md:w-1/2 mx-auto rounded-lg md:px-12 md:py-6 px-4 py-3">
+        <div className="self-start">
+          <NavLink to={"/"} onClick={removeLocalData}>
+            <Return color={"#666666"} />
+          </NavLink>
+        </div>
         <div className=" flex flex-row md:flex-row *:px-6  *:py-1  *:w-28 justify-center items-center m-4 *:text-center border-b-2 border-gray-300 pb-2">
           <button
             id="buy"
@@ -159,6 +148,7 @@ function Orders() {
                   userInputValue={userInputValue}
                   setUserInputValue={setUserInputValue}
                   setPayment={setPayment}
+                  oredersLength={orders.length}
                 />
               )}
               {payment && (
