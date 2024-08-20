@@ -83,7 +83,7 @@ function Orders() {
         <div className=" flex flex-row md:flex-row *:px-6  *:py-1  *:w-28 justify-center items-center m-4 *:text-center border-b-2 border-gray-300 pb-2">
           <button
             id="buy"
-            className={` w-16 ${
+            className={` w-16 text-bold_text ${
               activeTab === "buy"
                 ? "text-xl font-bold rounded  border-b-2 border-green_text  bg-tab-selection"
                 : "text-lg font-medium"
@@ -95,7 +95,7 @@ function Orders() {
 
           <button
             id="sell"
-            className={` w-16  ${
+            className={` w-16 text-bold_text ${
               activeTab === "sell"
                 ? " text-xl font-bold rounded border-b-2 border-tab-red  bg-tab-selection"
                 : "text-lg font-medium"
@@ -106,7 +106,7 @@ function Orders() {
           </button>
           <button
             id="matches"
-            className={` ${
+            className={` text-bold_text ${
               activeTab === "matches"
                 ? " text-xl font-bold rounded border-b-2 border-bold_text  bg-tab-selection"
                 : "text-lg font-medium"
@@ -128,12 +128,12 @@ function Orders() {
             <span className="text-bold_text text-sm font-extrabold">
               {LocalData && LocalData.currency1.title_fa}
             </span>
-            <span>
+            <span className="text-bold_text">
               {LocalData && LocalData.currency1.code}/{LocalData && LocalData.currency2.code}
             </span>
           </div>
         </div>
-        <div className="w-full md:w-3/4">
+        <div className="w-full ">
           {activeTab != "matches" ? (
             <>
               <OrderList data={orders} />
