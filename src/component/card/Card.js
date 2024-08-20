@@ -19,7 +19,7 @@ const Card = ({ tableData }) => {
     <>
       <div className="flex flex-col justify-center items-center p-2 my-2 bg-probe_chart_card text-regular_text *:text-sm rounded-md">
         <div className="flex flex-row w-full justify-between items-center px-4 pb-2 border-b-2 border-gray-300 ">
-          <div className="md:w-1/5  w-2/5">
+          <div className="md:w-1/6  w-2/5">
             <span>نام رمز ارز</span>
           </div>
           <div className="md:w-1/5  w-1/3">
@@ -41,16 +41,16 @@ const Card = ({ tableData }) => {
               key={index}
               className="flex flex-row w-full justify-between items-center px-4 *:ltr-grid *:text-center  hover:bg-hover-col "
             >
-              <div className="flex flex-row image md:w-1/5  w-2/5">
+              <div className="flex flex-row  md:w-1/5  w-2/5">
                 <div className=" shrink-0 relative">
                   <img
                     src={item.currency1.image ? item.currency1.image : ""}
-                    alt="crypto image"
+                    alt={item.currency1.title_fa}
                     className="w-10"
                   />
                   <img
                     src={item.currency2.image ? item.currency2.image : ""}
-                    alt="crypto image"
+                    alt={item.currency2.title_fa}
                     className="absolute bottom-2 right-0"
                     width={20}
                   />
@@ -81,7 +81,7 @@ const Card = ({ tableData }) => {
               {/* <div className="tab4  hidden md:block  md:w-1/5">
                 <span>نمودار</span>
               </div> */}
-              <div className="tab5  md:w-1/6 px-6 py-4 text-bold_text text-right my-2 hidden md:block">
+              <div className="tab5  md:w-1/5 px-6 py-4 text-bold_text text-right my-2 hidden md:block">
                 <LinkButton
                   href={`orders/${item.id}`}
                   name={"مشاهده"}
