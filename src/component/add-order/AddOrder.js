@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Button from "../button/Button"
 
-const AddOrder = ({ setUserInputValue, userInputValue }) => {
+const AddOrder = ({ setUserInputValue, userInputValue, setPayment }) => {
   const [percentageAmount, setPercentageAmount] = useState()
   const [error, setError] = useState()
 
@@ -10,12 +10,11 @@ const AddOrder = ({ setUserInputValue, userInputValue }) => {
     setPercentageAmount(inputValue)
     if (inputValue === "") {
       setError("لطفا مقدار را وارد نمایید")
-    } else if ((Number(inputValue) > 100)) {
+    } else if (Number(inputValue) > 100) {
       setError("لطفا مقدار را بین بازه 0 تا 100 وارد نمایید")
-    } else if ((Number(inputValue) < 0)) {
+    } else if (Number(inputValue) < 0) {
       setError("لطفا مقدار را بین بازه 0 تا 100 وارد نمایید")
-    } 
-    else {
+    } else {
       setError("")
     }
   }
@@ -23,6 +22,7 @@ const AddOrder = ({ setUserInputValue, userInputValue }) => {
   const handleSubmit = () => {
     if (!error) {
       setUserInputValue(percentageAmount)
+      setPayment(true)
     }
   }
 
@@ -32,7 +32,7 @@ const AddOrder = ({ setUserInputValue, userInputValue }) => {
         <div>
           <label htmlFor="userData" className=""></label>
           <input
-            className="md:w-72 h-14 w-32 rounded focus:outline-0 active:outline-0 p-2 text-center ltr-grid"
+            className="md:w-72 h-14 w-32 rounded focus:outline-0 active:outline-0 outline-0 p-2 text-center ltr-grid"
             name="userData"
             placeholder="مقدار درصدی مورد نظر را وارد کنید"
             type="number"
