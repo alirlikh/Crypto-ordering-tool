@@ -39,7 +39,7 @@ const Card = ({ tableData }) => {
           results.map((item, index) => (
             <div
               key={index}
-              className="flex flex-row w-full justify-between items-center px-4 *:ltr-grid *:text-center   "
+              className="flex flex-row w-full justify-between items-center px-4 *:ltr-grid *:text-center  hover:bg-hover-col "
             >
               <div className="flex flex-row image md:w-1/5  w-2/5">
                 <div className=" shrink-0 relative">
