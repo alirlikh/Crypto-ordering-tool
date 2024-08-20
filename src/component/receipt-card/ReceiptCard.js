@@ -1,7 +1,8 @@
 import Decimal from "decimal.js"
 import React, { useEffect, useState } from "react"
+import Button from "../button/Button"
 
-export const ReceiptCard = ({ percentageValue, orderResult }) => {
+export const ReceiptCard = ({ percentageValue, orderResult, setPayment }) => {
   const [average, setAverage] = useState(0)
   const [volume, setVolume] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0)
@@ -40,6 +41,11 @@ export const ReceiptCard = ({ percentageValue, orderResult }) => {
           <div className="flex-1 border-b border-dashed border-gray-300 h-[1px]"></div>
 
           <span className="m-2">{totalPrice}</span>
+        </div>
+        <div className="flex flex-row justify-center items-center">
+          <Button onClick={() => setPayment(false)} className={"bg-tab-red"}>
+            خروج
+          </Button>
         </div>
       </div>
     </div>
