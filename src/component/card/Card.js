@@ -39,12 +39,13 @@ const Card = ({ tableData }) => {
         {results.length > 0 ? (
           results.map((item, index) => (
             <NavLink
+              key={item.id}
               to={`orders/${item.id}`}
               className={"flex flex-row w-full justify-between items-center  "}
               onClick={() => setLocalData(item)}
             >
               <div
-                key={index}
+                key={item.id}
                 className="flex flex-row w-full justify-between items-center px-4 *:ltr-grid *:text-center  hover:bg-hover-col "
               >
                 <div className="flex flex-row  md:w-1/5  w-2/5">
@@ -88,14 +89,14 @@ const Card = ({ tableData }) => {
               <span>نمودار</span>
             </div> */}
                 <div className="tab5  md:w-1/5 px-6 py-4 text-bold_text text-right my-2 hidden md:block">
-                  <LinkButton
-                    href={`orders/${item.id}`}
-                    name={"مشاهده"}
+                  <button
                     onClick={() => setLocalData(item)}
                     className={
                       "bg-btn-green transition-all duration-150 hover:brightness-[0.8] text-black font-medium py-3 px-6 rounded"
                     }
-                  />
+                  >
+                    مشاهده
+                  </button>
                 </div>
               </div>
             </NavLink>
