@@ -4,6 +4,17 @@ import Decimal from "decimal.js"
 
 const Card = ({ tableData }) => {
   const results = tableData
+
+  const setLocalData = (data) => {
+    let tmp = JSON.stringify(data)
+    let coin = localStorage.getItem("coin")
+    if (!!coin) {
+      localStorage.removeItem("coin")
+    }
+
+    localStorage.setItem("coin", tmp)
+  }
+
   return (
     <>
       <div className="flex flex-col justify-center items-center p-2 my-2 bg-probe_chart_card text-regular_text *:text-sm rounded-md">
@@ -17,11 +28,11 @@ const Card = ({ tableData }) => {
           <div className="md:w-1/6 w-1/4 text-sm">
             <span>تغییرات</span>
           </div>
-          <div className="hidden md:block md:w-1/5 ">
+          {/* <div className="hidden md:block md:w-1/5 ">
             <span>نمودار</span>
-          </div>
-          <div className="hidden md:block md:w-1/6">
-            <span></span>
+          </div> */}
+          <div className="hidden md:block md:w-1/5">
+            <span> </span>
           </div>
         </div>
         {results.length > 0 ? (
@@ -67,11 +78,15 @@ const Card = ({ tableData }) => {
                     : "-"}
                 </span>
               </div>
-              <div className="tab4  hidden md:block  md:w-1/5">
+              {/* <div className="tab4  hidden md:block  md:w-1/5">
                 <span>نمودار</span>
-              </div>
+              </div> */}
               <div className="tab5  md:w-1/6 px-6 py-4 text-bold_text text-right my-2 hidden md:block">
-                <LinkButton href={`orders/${item.id}`} name={"مشاهده"} />
+                <LinkButton
+                  href={`orders/${item.id}`}
+                  name={"مشاهده"}
+                  onClick={() => setLocalData(item)}
+                />
               </div>
             </div>
           ))
