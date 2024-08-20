@@ -3,15 +3,13 @@ import React from "react"
 function Pagination({ currentPage, totalPages, onPageChange, onNext, onPrevious }) {
   const renderPageNumbers = () => {
     const pageNumbers = []
-    const maxPagesToShow = 5
+    const maxPagesToShow = 3
 
     if (totalPages <= maxPagesToShow) {
-      // اگر تعداد کل صفحات کمتر یا مساوی maxPagesToShow باشد، همه صفحات را نمایش می‌دهیم
       for (let i = 1; i <= totalPages; i++) {
         pageNumbers.push(i)
       }
     } else {
-      // نمایش شماره‌های ابتدایی، فعلی و پایانی
       let startPage = currentPage - Math.floor(maxPagesToShow / 2)
       let endPage = currentPage + Math.floor(maxPagesToShow / 2)
 
