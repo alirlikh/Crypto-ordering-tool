@@ -4,6 +4,7 @@ import axios from "axios"
 import Table from "../../component/table/Table"
 import Pagination from "../../component/pagination/Pagination"
 import usePagination from "../../hook/UsePagination"
+import Card from "../../component/card/Card"
 
 function Markets() {
   const [marketData, setMarketData] = useState(null)
@@ -36,10 +37,14 @@ function Markets() {
 
   if (loading) return <p>Loading...</p>
   return (
-    <div className="relative overflow-x-auto shadow-md w-full md:w-3/4  text-center mx-auto rounded-lg">
-      <div className="border-b bg-probe_chart_card  text-bold_text flex justify-start  *:p-3 *:mx-3">
+    <div className="relative overflow-x-auto w-full md:w-3/4  text-center mx-auto rounded-lg pb-10">
+      <div className=" bg-probe_chart_card  text-bold_text flex justify-start  *:py-3 *:px-6  rounded-md py-2 px-2 md:w-52 w-full ">
         <button
-          className={` ${activeTab === "IRT" ? "border-b-2 border-green_text text-lg" : ""}`}
+          className={`w-1/2 md:w-24 text-base outline-0 ${
+            activeTab === "IRT"
+              ? "border-b-2 border-green_text text-lg rounded bg-tab-selection font-extrabold"
+              : ""
+          }`}
           onClick={() => {
             setActiveTab("IRT")
           }}
@@ -47,7 +52,11 @@ function Markets() {
           تومان
         </button>
         <button
-          className={`  ${activeTab === "USDT" ? "border-b-2 border-green_text text-lg" : ""}`}
+          className={`w-1/2 md:w-24 text-base outline-0 ${
+            activeTab === "USDT"
+              ? "border-b-2 border-green_text text-lg rounded bg-tab-selection font-extrabold"
+              : ""
+          }`}
           onClick={() => {
             setActiveTab("USDT")
           }}
@@ -55,7 +64,7 @@ function Markets() {
           تتر
         </button>
       </div>
-      <Table tableData={currentData} />
+      <Card tableData={currentData} />
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
