@@ -8,7 +8,7 @@ const MatchList = ({ data }) => {
         <span>مقدار</span>
         <span>زمان</span>
       </div>
-      {data && data.lenght > 0 ? (
+      {data && data.length > 0 ? (
         data.map((orders, index) => (
           <div
             key={index}

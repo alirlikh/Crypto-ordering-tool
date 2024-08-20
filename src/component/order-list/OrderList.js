@@ -1,6 +1,8 @@
 import React from "react"
 
 const OrderList = ({ data }) => {
+  console.log(data,"kdhlni");
+  
   return (
     <div className="bg-background_color rounded-2xl w-full min-w-64 px-4 py-8 m-3 mx-auto text-regular_text">
       <div className=" flex flex-row *:px-4 *:py-2 *:text-center justify-between *:text-sm *:font-bold">
@@ -8,7 +10,7 @@ const OrderList = ({ data }) => {
         <span>مقدار</span>
         <span>باقی</span>
       </div>
-      {data && data.lenght > 0 ? (
+      {data && (data.length > 0) ? (
         data.map((orders, index) => (
           <div
             key={index}
