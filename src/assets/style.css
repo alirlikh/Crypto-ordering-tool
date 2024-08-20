@@ -21,6 +21,7 @@
   --tab-selection: 209, 213, 219;
   --tab-red: #ff5151cc;
   --tab-green: #74e291;
+  --btn-paggenation: #007bff;
 }
 
 [data-theme="dark"] {
@@ -39,10 +40,11 @@
   --btn-green: #4ef09d;
   --tab-text: #d8d8d8;
   --tab-selection: 57, 59, 62;
+  --btn-paggenation: #007bff;
 }
 
 body {
-  @apply font-body bg-background_color;
+  @apply font-body bg-background_color text-xs;
   direction: rtl;
 }
 

@@ -32,6 +32,7 @@ module.exports = {
         "tab-selection": `rgb(var(--tab-selection))`,
         "tab-red": `var(--tab-red)`,
         "tab-green": `var(--tab-green)`,
+        "btn-paggenation": `var(--btn-paggenation)`,
         "btn-green": `var(--btn-green)`
       }
     }
