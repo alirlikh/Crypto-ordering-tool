@@ -20,6 +20,12 @@ function Orders() {
   const [payment, setPayment] = useState(false)
   const { currencyId } = useParams()
 
+  const tabs = [
+    { id: 1, name: "خرید", code: "buy" },
+    { id: 2, name: "فروش", code: "sell" },
+    { id: 3, name: "معاملات", code: "matches" }
+  ]
+
   const handleTabClick = (e) => {
     setActiveTab(e.target.id)
   }
@@ -60,15 +66,18 @@ function Orders() {
     const fetchData = () => {
       if (activeTab === "matches") {
         getMatches(currencyId)
-      } else {
+      } else if (!payment) {
         getOrders(currencyId, activeTab)
+      } else {
+        // برای ثبت سفارش دیتا لازم دریافت میشود
+        getOrders(currencyId, activeTab === "sell" ? "buy" : "sell")
       }
     }
     getLocalData()
     fetchData()
     const intervalId = setInterval(fetchData, 3000)
     return () => clearInterval(intervalId)
-  }, [activeTab])
+  }, [activeTab, payment])
 
   if (loading) return <Loader />
 
@@ -81,40 +90,26 @@ function Orders() {
           </NavLink>
         </div>
         <div className=" flex flex-row md:flex-row *:px-6  *:py-1  *:w-28 justify-center items-center m-4 *:text-center border-b-2 border-gray-300 pb-2">
-          <button
-            id="buy"
-            className={` w-16 text-bold_text ${
-              activeTab === "buy"
-                ? "text-xl font-bold rounded  border-b-2 border-green_text  bg-tab-selection"
-                : "text-lg font-medium"
-            } `}
-            onClick={handleTabClick}
-          >
-            خرید
-          </button>
-
-          <button
-            id="sell"
-            className={` w-16 text-bold_text ${
-              activeTab === "sell"
-                ? " text-xl font-bold rounded border-b-2 border-tab-red  bg-tab-selection"
-                : "text-lg font-medium"
-            }`}
-            onClick={handleTabClick}
-          >
-            فروش
-          </button>
-          <button
-            id="matches"
-            className={` text-bold_text ${
-              activeTab === "matches"
-                ? " text-xl font-bold rounded border-b-2 border-bold_text  bg-tab-selection"
-                : "text-lg font-medium"
-            } `}
-            onClick={handleTabClick}
-          >
-            معاملات
-          </button>
+          {tabs.map((tab) => (
+            <button
+              id={tab.code}
+              key={tab.id}
+              className={` text-bold_text ${
+                activeTab === tab.code
+                  ? " text-xl font-bold rounded border-b-2  bg-tab-selection"
+                  : "text-lg font-medium"
+              } ${
+                activeTab === "sell"
+                  ? "border-tab-red"
+                  : activeTab === "buy"
+                  ? "border-green_text"
+                  : "border-bold_text"
+              }`}
+              onClick={handleTabClick}
+            >
+              {tab.name}
+            </button>
+          ))}
         </div>
         <div className="flex flex-row items-center">
           <div>
@@ -156,6 +151,7 @@ function Orders() {
                   percentageValue={userInputValue}
                   orderResult={orderResult}
                   setPayment={setPayment}
+                  // getOrders={getOrders}
                 />
               )}
             </>

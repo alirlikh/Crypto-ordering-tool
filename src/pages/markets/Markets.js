@@ -10,6 +10,11 @@ function Markets() {
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState("IRT")
 
+  const tabs = [
+    { id: 1, name: "تومان", code: "IRT" },
+    { id: 2, name: "تتر", code: "USDT" }
+  ]
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -38,30 +43,22 @@ function Markets() {
   return (
     <div className="relative overflow-x-auto w-full md:w-3/4  text-center mx-auto rounded-lg pb-10">
       <div className=" bg-probe_chart_card  text-bold_text flex justify-start  *:py-3 *:px-6  rounded-md py-2 px-2 md:w-52 w-full ">
-        <button
-          className={`w-1/2 md:w-24 text-base outline-0 ${
-            activeTab === "IRT"
-              ? "border-b-2 border-green_text text-lg rounded bg-tab-selection font-extrabold"
-              : ""
-          }`}
-          onClick={() => {
-            setActiveTab("IRT")
-          }}
-        >
-          تومان
-        </button>
-        <button
-          className={`w-1/2 md:w-24 text-base outline-0 ${
-            activeTab === "USDT"
-              ? "border-b-2 border-green_text text-lg rounded bg-tab-selection font-extrabold"
-              : ""
-          }`}
-          onClick={() => {
-            setActiveTab("USDT")
-          }}
-        >
-          تتر
-        </button>
+        {tabs.map((tab) => (
+          <button
+            id={tab.code}
+            key={tab.id}
+            className={`w-1/2 md:w-24 text-base outline-0 ${
+              activeTab === tab.code
+                ? "border-b-2 border-green_text text-lg rounded bg-tab-selection font-extrabold"
+                : ""
+            }`}
+            onClick={() => {
+              setActiveTab(tab.code)
+            }}
+          >
+            {tab.name}
+          </button>
+        ))}
       </div>
       <Card tableData={currentData} />
       <Pagination
