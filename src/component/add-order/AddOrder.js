@@ -1,21 +1,26 @@
 import React, { useState } from "react"
 import Button from "../button/Button"
 
-const AddOrder = ({ setUserInputValue, userInputValue, setPayment }) => {
+const AddOrder = ({ setUserInputValue, userInputValue, setPayment, oredersLength }) => {
   const [percentageAmount, setPercentageAmount] = useState()
   const [error, setError] = useState()
 
   const checkInput = (e) => {
     const inputValue = e.target.value
     setPercentageAmount(inputValue)
-    if (inputValue === "") {
-      setError("لطفا مقدار را وارد نمایید")
-    } else if (Number(inputValue) > 100) {
-      setError("لطفا مقدار را بین بازه 0 تا 100 وارد نمایید")
-    } else if (Number(inputValue) < 0) {
-      setError("لطفا مقدار را بین بازه 0 تا 100 وارد نمایید")
+
+    if (oredersLength === 0) {
+      setError("تراکنش امکان پذیر نمی یاشد")
     } else {
-      setError("")
+      if (inputValue === "") {
+        setError("لطفا مقدار را وارد نمایید")
+      } else if (Number(inputValue) > 100) {
+        setError("لطفا مقدار را بین بازه 0 تا 100 وارد نمایید")
+      } else if (Number(inputValue) < 0) {
+        setError("لطفا مقدار را بین بازه 0 تا 100 وارد نمایید")
+      } else {
+        setError("")
+      }
     }
   }
 
@@ -46,7 +51,7 @@ const AddOrder = ({ setUserInputValue, userInputValue, setPayment }) => {
         <Button onClick={handleSubmit}>ثبت</Button>
       </div>
 
-      {error && <div className="text-red_text">{error}</div>}
+      {error && <div className="text-red_text text-right p-2 m-1 relative -left-1/4">{error}</div>}
     </div>
   )
 }
