@@ -3,64 +3,6 @@ import Link from "react-router-dom"
 import LinkButton from "../link-button/LinkButton"
 
 const Table = ({ tableData }) => {
-  // const results = [
-  //   {
-  //     id: 1,
-  //     currency1: {
-  //       code: "BTC",
-  //       image: "https://cdn.bitpin.org/media/market/currency/1715450862.svg",
-  //       title_fa: "بیتکوین"
-  //     },
-  //     currency2: {
-  //       image: "https://cdn.bitpin.org/media/market/currency/1697373576.svg",
-  //       code: "IRT"
-  //     },
-  //     price: "124123",
-  //     price_info: { change: 0.2 }
-  //   },
-  //   {
-  //     id: 1,
-  //     currency1: {
-  //       code: "BTC",
-  //       image: "https://cdn.bitpin.org/media/market/currency/1715450862.svg",
-  //       title_fa: "بیتکوین"
-  //     },
-  //     currency2: {
-  //       image: "https://cdn.bitpin.org/media/market/currency/1697373576.svg",
-  //       code: "IRT"
-  //     },
-  //     price: "124123",
-  //     price_info: { change: 0.2 }
-  //   },
-  //   {
-  //     id: 1,
-  //     currency1: {
-  //       code: "BTC",
-  //       image: "https://cdn.bitpin.org/media/market/currency/1715450862.svg",
-  //       title_fa: "بیتکوین"
-  //     },
-  //     currency2: {
-  //       image: "https://cdn.bitpin.org/media/market/currency/1697373576.svg",
-  //       code: "IRT"
-  //     },
-  //     price: "124123",
-  //     price_info: { change: 0.2 }
-  //   },
-  //   {
-  //     id: 1,
-  //     currency1: {
-  //       code: "BTC",
-  //       image: "https://cdn.bitpin.org/media/market/currency/1715450862.svg",
-  //       title_fa: "بیتکوین"
-  //     },
-  //     currency2: {
-  //       image: "https://cdn.bitpin.org/media/market/currency/1697373576.svg",
-  //       code: "IRT"
-  //     },
-  //     price_info: { change: 0.2 },
-  //     price: "124123"
-  //   }
-  // ]
   const results = tableData
 
   return (
@@ -125,11 +67,7 @@ const Table = ({ tableData }) => {
               </td>
               <td className="px-6 py-4 text-bold_text my-2">{item.name}</td>
               <td className="px-6 py-4 text-bold_text text-right my-2">
-                <LinkButton
-                  href={`orders/${item.currency1.code}`}
-                  name={"مشاهده"}
-                  data={{ id: item.id, name: item.currency1.code }}
-                />
+                <LinkButton href={`orders/${item.id}`} name={"مشاهده"} />
               </td>
             </tr>
           ))
