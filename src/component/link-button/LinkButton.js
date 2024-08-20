@@ -1,18 +1,21 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
-const LinkButton = ({ name, href, data }) => {
+const LinkButton = ({ name, href, data, onClick }) => {
   return (
-    <Link
+    <NavLink
       to={{
         pathname: href
         // state: data
       }}
     >
-      <button className="bg-btn-green transition-all duration-150 hover:brightness-[0.8] text-black font-medium py-3 px-6 rounded">
+      <button
+        onClick={onClick}
+        className="bg-btn-green transition-all duration-150 hover:brightness-[0.8] text-black font-medium py-3 px-6 rounded"
+      >
         {name}
       </button>
-    </Link>
+    </NavLink>
   )
 }
 
